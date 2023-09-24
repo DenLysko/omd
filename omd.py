@@ -1,4 +1,4 @@
-def step2_есть_зонтик():
+def step2_umbrella():
 
     print(
         f"Зонтик ☂️  спас уточку от дождя по пути в бар! \n" 
@@ -23,7 +23,7 @@ def step1():
         option = input()
     
     if options[option]:
-        return step2_есть_зонтик()
+        return step2_umbrella()
     return step2_no_umbrella()
 
 if __name__ == '__main__':
