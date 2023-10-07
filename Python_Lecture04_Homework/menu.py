@@ -12,6 +12,7 @@ def write_report(report):
     report__csv = open("report.csv", "w", newline="")
     writer = csv.writer(report__csv)
     writer.writerows(report.items())
+import writer_and_reader
 
 
 def step1() -> None:
