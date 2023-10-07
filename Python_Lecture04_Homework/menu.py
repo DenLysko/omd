@@ -2,8 +2,9 @@ import methods_for_options
 import writer_and_reader
 
 
-def step1() -> None:
-    my_reader, option = get_option_and_reader()
+def run() -> None:
+    my_reader = writer_and_reader.get_reader()
+    option = get_option_and_reader()
 
     match option:
         case 1:
@@ -28,7 +29,7 @@ def step1() -> None:
 
 
 def get_option_and_reader():
-    my_reader = writer_and_reader.get_reader()
+    """ """
     print(
         "Выберите пункт меню: \n 1. Вывести иерархию команд \n"
         + "2. Вывести сводный отчёт по департаментам \n 3. Cохранить сводный отчёт в виде csv-файла"
@@ -38,8 +39,8 @@ def get_option_and_reader():
     options = [1, 2, 3]
     while option not in options:
         option = int(input())
-    return my_reader, option
+    return option
 
 
 if __name__ == "__main__":
-    step1()
+    run()
