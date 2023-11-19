@@ -1,6 +1,3 @@
-import csv
-
-
 def generate_command_hierarchy(reader) -> dict[str, list]:
     """
     Генерирует словарь с департаментами и их отделами

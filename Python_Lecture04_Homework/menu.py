@@ -9,28 +9,32 @@ def run() -> None:
     my_reader = writer_and_reader.get_reader()
     option = get_option()
 
-    match option:
-        case 1:
-            departments_and_commands = methods_for_options.generate_command_hierarchy(
-                my_reader
-            )
-            for key, value in departments_and_commands.items():
-                # Поскольку хочу использовать join,
-                # то не получается использовать f-string
-                print("{0}: {1}.".format(key, ", ".join(list(value))))
-        case 2:
-            report = methods_for_options.generate_report(my_reader)
-            for key, value in report.items():
-                # Не было указаний до какого числа необходимо огруглять среднюю зарплату,
-                # поэтому вывожу число полностью. Но всегда можно написать round(value[4], 2), например
-                print(
-                    f'Департамент "{key}". Численность: {value[0]}, минимальная зарплата: {value[2]}, '
-                    f"максимальная зарплата: {value[3]}, средняя зарплата: {value[4]}"
+    while True:
+        match option:
+            case 1:
+                departments_and_commands = (
+                    methods_for_options.generate_command_hierarchy(my_reader)
                 )
-
-        case 3:
-            report = methods_for_options.generate_report(my_reader)
-            writer_and_reader.write_report(report)
+                for key, value in departments_and_commands.items():
+                    # Поскольку хочу использовать join,
+                    # то не получается использовать f-string
+                    print("{0}: {1}.".format(key, ", ".join(list(value))))
+            case 2:
+                report = methods_for_options.generate_report(my_reader)
+                for key, value in report.items():
+                    # Не было указаний до какого числа необходимо огруглять среднюю зарплату,
+                    # поэтому вывожу число полностью. Но всегда можно написать round(value[4], 2), например
+                    print(
+                        f"Департамент '{key}'. Численность: {value[0]}, минимальная зарплата: {value[2]}, "
+                        f"максимальная зарплата: {value[3]}, средняя зарплата: {value[4]}"
+                    )
+            case 3:
+                report = methods_for_options.generate_report(my_reader)
+                writer_and_reader.write_report(report)
+            case _:
+                print(
+                    "Введенная опция не существует. \nНеобходимо выбрать одну из существующих опций"
+                )
 
 
 def get_option():
