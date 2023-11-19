@@ -31,6 +31,10 @@ def run() -> None:
             case 3:
                 report = methods_for_options.generate_report(my_reader)
                 writer_and_reader.write_report(report)
+            case _:
+                print(
+                    "Введенная опция не существует. \nНеобходимо выбрать одну из существующих опций"
+                )
 
 
 def get_option():
