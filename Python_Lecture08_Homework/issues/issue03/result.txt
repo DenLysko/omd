@@ -1,0 +1,10 @@
+python -m unittest -v .\issue03\issue03.py
+test_digits (issue03.issue03.TestFitTransform.test_digits) ... ok
+test_empty_string (issue03.issue03.TestFitTransform.test_empty_string) ... ok
+test_letters (issue03.issue03.TestFitTransform.test_letters) ... ok
+test_words (issue03.issue03.TestFitTransform.test_words) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.002s
+
+OK
