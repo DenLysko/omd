@@ -1,0 +1,75 @@
+python -m pytest -v .\issue02\issue02.py
+======================================================================== test session starts =========================================================================
+platform win32 -- Python 3.11.4, pytest-7.4.3, pluggy-1.3.0 -- C:\Users\ajdk4\AppData\Local\Programs\Python\Python311\python.exe
+cachedir: .pytest_cache
+rootdir: C:\My repositories\omd\Python_Lecture08_Homework\issues
+plugins: anyio-3.7.1, Faker-20.0.3
+collected 3 items
+
+issue02/issue02.py::test_decode[...-- ..---   ..----322] PASSED                                                                                                 [ 33%]
+issue02/issue02.py::test_decode[--.- .-- . .-. - -.-- .---- ..--- ...--   .. ...   -- -.--   .--. .- ... ... .-- --- .-. -..   --- -.   --. .. - .... ..- -...-QWERTY123 IS MY PASSWORD ON GITHUB] FAILED [ 66%]
+issue02/issue02.py::test_decode[- .... .   .--. .-. . ...- .. --- ..- ...   -- . ... ... .- --. .   .. ...   .-   .-.. .. . -.--.- -.--.- -.--.--THE PREVIOUS MESSAGE IS A LIE)))] FAILED [100%]
+
+============================================================================== FAILURES ==============================================================================
+_ test_decode[--.- .-- . .-. - -.-- .---- ..--- ...--   .. ...   -- -.--   .--. .- ... ... .-- --- .-. -..   --- -.   --. .. - .... ..- -...-QWERTY123 IS MY PASSWORD ON GITHUB] _
+
+morse_message = '--.- .-- . .-. - -.-- .---- ..--- ...--   .. ...   -- -.--   .--. .- ... ... .-- --- .-. -..   --- -.   --. .. - .... ..- -...'
+result = 'QWERTY123 IS MY PASSWORD ON GITHUB'
+
+    @pytest.mark.parametrize(
+        "morse_message,result",
+        [
+            ("...-- ..---   ..---", "322"),
+            (
+                "--.- .-- . .-. - -.-- .---- ..--- ...--   "
+                ".. ...   -- -.--   .--. .- ... ... .-- --- .-. -..   "
+                "--- -.   --. .. - .... ..- -...",
+                "QWERTY123 IS MY PASSWORD ON GITHUB",
+            ),
+            (
+                "- .... .   .--. .-. . ...- .. --- ..- ...   -- . ... ... .- --. .   .. ...   .-   .-.. .. . -.--.- -.--.- -.--.-",
+                "THE PREVIOUS MESSAGE IS A LIE)))",
+            ),
+        ],
+    )
+    def test_decode(morse_message, result):
+>       assert decode(morse_message) == result
+E       AssertionError: assert 'QWERTY123ISM...SWORDONGITHUB' == 'QWERTY123 IS...ORD ON GITHUB'
+E         - QWERTY123 IS MY PASSWORD ON GITHUB
+E         ?          -  -  -        -  -
+E         + QWERTY123ISMYPASSWORDONGITHUB
+
+issue02\issue02.py:79: AssertionError
+___ test_decode[- .... .   .--. .-. . ...- .. --- ..- ...   -- . ... ... .- --. .   .. ...   .-   .-.. .. . -.--.- -.--.- -.--.--THE PREVIOUS MESSAGE IS A LIE)))] ___ 
+
+morse_message = '- .... .   .--. .-. . ...- .. --- ..- ...   -- . ... ... .- --. .   .. ...   .-   .-.. .. . -.--.- -.--.- -.--.-'
+result = 'THE PREVIOUS MESSAGE IS A LIE)))'
+
+    @pytest.mark.parametrize(
+        "morse_message,result",
+        [
+            ("...-- ..---   ..---", "322"),
+            (
+                "--.- .-- . .-. - -.-- .---- ..--- ...--   "
+                ".. ...   -- -.--   .--. .- ... ... .-- --- .-. -..   "
+                "--- -.   --. .. - .... ..- -...",
+                "QWERTY123 IS MY PASSWORD ON GITHUB",
+            ),
+            (
+                "- .... .   .--. .-. . ...- .. --- ..- ...   -- . ... ... .- --. .   .. ...   .-   .-.. .. . -.--.- -.--.- -.--.-",
+                "THE PREVIOUS MESSAGE IS A LIE)))",
+            ),
+        ],
+    )
+    def test_decode(morse_message, result):
+>       assert decode(morse_message) == result
+E       AssertionError: assert 'THEPREVIOUSMESSAGEISALIE)))' == 'THE PREVIOUS...E IS A LIE)))'
+E         - THE PREVIOUS MESSAGE IS A LIE)))
+E         ?    -        -       -  - -
+E         + THEPREVIOUSMESSAGEISALIE)))
+
+issue02\issue02.py:79: AssertionError
+====================================================================== short test summary info ======================================================================= 
+FAILED issue02/issue02.py::test_decode[--.- .-- . .-. - -.-- .---- ..--- ...--   .. ...   -- -.--   .--. .- ... ... .-- --- .-. -..   --- -.   --. .. - .... ..- -...-QWERTY123 IS MY PASSWORD ON GITHUB] - AssertionError: assert 'QWERTY123ISM...SWORDONGITHUB' == 'QWERTY123 IS...ORD ON GITHUB'
+FAILED issue02/issue02.py::test_decode[- .... .   .--. .-. . ...- .. --- ..- ...   -- . ... ... .- --. .   .. ...   .-   .-.. .. . -.--.- -.--.- -.--.--THE PREVIOUS MESSAGE IS A LIE)))] - AssertionError: assert 'THEPREVIOUSMESSAGEISALIE)))' == 'THE PREVIOUS...E IS A LIE)))'
+==================================================================== 2 failed, 1 passed in 0.45s =====================================================================
