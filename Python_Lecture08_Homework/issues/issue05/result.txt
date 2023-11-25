@@ -1,0 +1,20 @@
+python -m unittest -v .\issue05\issue05.py
+test_first_format (issue05.issue05.TestWhatIsYearNow.test_first_format) ... ok
+test_second_format (issue05.issue05.TestWhatIsYearNow.test_second_format) ... ok
+test_value_error (issue05.issue05.TestWhatIsYearNow.test_value_error) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.777s
+
+OK
+
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+
+python -m pytest -q .\issue05\issue05.py --cov, --cov-report html
+...                                                                                                                                                                               [100%]
+
+---------- coverage: platform win32, python 3.11.4-final-0 -----------
+Coverage HTML written to dir htmlcov
+
+3 passed in 3.78s
